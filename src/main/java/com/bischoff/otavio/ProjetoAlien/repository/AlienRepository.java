@@ -1,18 +1,22 @@
 package com.bischoff.otavio.ProjetoAlien.repository;
 
+import model.AlienModel;
+import org.springframework.stereotype.Repository;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.stream.Collectors;
 
+@Repository
 public class AlienRepository {
 
-
-    public static List <Alien> lerAliensArquivo(){
+    public static List<AlienModel> lerAliensArquivo(){
         //to criando um try cath pois ao ler o arquivo pode dar exception logo, precaver e uma boa opcao
         try {
             //Files.lines (algo do Stream) que me permite ler cada lines(linha) do Files(arquivo) citado como se fosse uma String para que eu possa tratar
             return Files.lines(Paths.get("/Users/aluno/Downloads/ProjetoAlien/src/main/java/com/bischoff/otavio/ProjetoAlien/repository/Aliens.txt"))
-                    .map(ALien::new)//para cada linha, cria um novo alien
+                    .map(AlienModel::new)//para cada linha, cria um novo alien
                     .collect(Collectors.toList());//junta todos os objetos Alien em uma lista
 
         } catch (Exception e) {
