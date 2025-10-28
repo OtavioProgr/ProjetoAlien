@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 public class AlienRepository {
 
 
-    public List<Alien> lerAliensArquivo(){
+    public static List <Alien> lerAliensArquivo(){
         //to criando um try cath pois ao ler o arquivo pode dar exception logo, precaver e uma boa opcao
         try {
             //Files.lines (algo do Stream) que me permite ler cada lines(linha) do Files(arquivo) citado como se fosse uma String para que eu possa tratar
